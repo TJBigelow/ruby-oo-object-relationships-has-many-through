@@ -20,9 +20,6 @@ class Waiter
     end
 
     def best_tipper
-        @best_tipper = nil
-        @best_tip = 0
-        meals.each {|meal| if meal.tip > @best_tip; @best_tipper = meal.customer; @best_tip = meal.tip; end}
-        @best_tipper
+        self.meals.max_by{|meal| meal.tip}.customer
     end
 end
